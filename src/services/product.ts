@@ -7,6 +7,8 @@ export type Product = {
 	image: string
 	description: string
 	code: string
+	manufacturer_url: string
+	features: string[]
 }
 
 export const getProducts = async (): Promise<Product[]> => {

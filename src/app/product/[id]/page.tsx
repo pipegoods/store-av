@@ -21,7 +21,7 @@ export default async function ProductPage({
 				className='inline-flex items-center text-sm text-gray-600 hover:text-black mb-8'
 			>
 				<ArrowLeft className='mr-2 h-4 w-4' />
-				Back to products
+				Volver a productos
 			</Link>
 			<div className='grid md:grid-cols-2 gap-12'>
 				<div className='flex items-center justify-center'>
@@ -38,12 +38,17 @@ export default async function ProductPage({
 					<p className='text-xl font-semibold mb-6'>{product.price}</p>
 					<p className='text-gray-600 mb-6'>{product.description}</p>
 					<div className='mb-8'>
-						<h2 className='text-lg font-semibold mb-2'>Specifications:</h2>
-						{/* <ul className='list-disc pl-5 text-gray-600'>
-							{product.specs.map((spec, index) => (
-								<li key={index}>{spec}</li>
+						<h2 className='text-lg font-semibold mb-2'>Características:</h2>
+						<ul className='list-disc pl-5 text-gray-600'>
+							{product.features.map((feature, index) => (
+								<li key={index}>{feature}</li>
 							))}
-						</ul> */}
+						</ul>
+					</div>
+					<div className='mb-8'>
+						<p className='text-2xl font-mono bg-gray-100 p-3 inline-block rounded'>
+							{product.code}
+						</p>
 					</div>
 					<ButtonAddCart product={product} />
 				</div>

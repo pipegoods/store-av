@@ -5,6 +5,15 @@
 		"code": "RTX-4070",
 		"price": 120.99,
 		"image": "rtx4070-asus-prime.webp",
-		"description": "Teclado mecánico con retroiluminación RGB y switches rojos."
+		"description": "Tarjeta gráfica con refrigeración avanzada y diseño compacto para construcciones de alto rendimiento",
+		"manufacturer_url": "https://www.asus.com/latin/motherboards-components/graphics-cards/prime/prime-rtx4070-12g/",
+		"features": [
+			"Axial-tech fans",
+			"Military-grade capacitors",
+			"Auto-Extreme Technology",
+			"0dB tecnología silenciosa",
+			"Soporte para Ray Tracing",
+			"DLSS 3"
+		]
 	}
 ]

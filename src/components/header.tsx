@@ -64,11 +64,11 @@ export function Header() {
 					</SheetTrigger>
 					<SheetContent className='p-6'>
 						<SheetHeader className='p-0'>
-							<SheetTitle>Your Cart</SheetTitle>
+							<SheetTitle>Tu carrito</SheetTitle>
 						</SheetHeader>
 						<ScrollArea className='h-[calc(100vh-12rem)] mt-6'>
 							{cart.length === 0 ? (
-								<p className='text-sm text-gray-500'>Your cart is empty.</p>
+								<p className='text-sm text-gray-500'>Tu carrito está vacío.</p>
 							) : (
 								<ul className='space-y-4'>
 									{cart.map((item, index) => {
@@ -90,9 +90,10 @@ export function Header() {
 														/>
 													</div>
 													<span className='text-sm font-medium'>
-														{item.name}
+														{item.code}
 													</span>
 												</div>
+
 												<Button
 													variant='ghost'
 													size='icon'
