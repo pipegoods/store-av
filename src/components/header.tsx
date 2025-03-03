@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { Menu, ShoppingCart, X } from 'lucide-react'
+import { generateWhatsAppMessage } from '@/lib/cart-utils'
 import { getImageUrl } from '@/lib/get-image-url'
 import { useCartStore } from '@/store/cart'
 import { Button } from './ui/button'
@@ -18,6 +19,11 @@ export function Header() {
 	const cart = useCartStore((state) => state.cart)
 	const removeFromCart = useCartStore((state) => state.removeFromCart)
 
+	const handleBuyNowClick = () => {
+		const message = generateWhatsAppMessage(cart)
+		window.location.href = `https://wa.me/573167966709?text=${message}`
+	}
+
 	return (
 		<header className='sticky top-0 z-10 bg-white py-5 px-4'>
 			<div className='flex justify-between items-center'>
@@ -31,26 +37,35 @@ export function Header() {
 						</SheetHeader>
 						<div className='mt-6 space-y-4'>
 							<p className='text-sm'>
-								Welcome to AVStore, your destination for minimalist fashion.
+								Tu tienda virtual de componentes de computadora. Visita nuestro{' '}
+								<a
+									href='https://dub.sh/8QXihh1'
+									target='_blank'
+									rel='noopener noreferrer'
+									className='text-blue-600 hover:underline'
+								>
+									perfil de Facebook Marketplace
+								</a>{' '}
+								y disfruta de envíos a todo Colombia.
 							</p>
 							<nav className='space-y-2'>
-								<a href='#' className='block text-sm hover:underline'>
-									About Us
+								<a
+									href='https://dub.sh/rWsdr17'
+									target='_blank'
+									rel='noopener noreferrer'
+									className='block text-sm hover:underline'
+								>
+									Contacto
 								</a>
 								<a href='#' className='block text-sm hover:underline'>
-									Collections
-								</a>
-								<a href='#' className='block text-sm hover:underline'>
-									Sustainability
-								</a>
-								<a href='#' className='block text-sm hover:underline'>
-									Contact
+									Términos y Condiciones
 								</a>
 							</nav>
 						</div>
 					</SheetContent>
 				</Sheet>
-				<span className='text-sm font-bold'>AVStore</span>
+
+				<span className='text-xl font-bold'>AVStore</span>
 				<Sheet>
 					<SheetTrigger>
 						<div className='relative'>
@@ -109,7 +124,9 @@ export function Header() {
 						</ScrollArea>
 						{cart.length > 0 && (
 							<div className='mt-6'>
-								<Button className='w-full'>Buy Now</Button>
+								<Button className='w-full' onClick={handleBuyNowClick}>
+									Cotizar por WhatsApp
+								</Button>
 							</div>
 						)}
 					</SheetContent>

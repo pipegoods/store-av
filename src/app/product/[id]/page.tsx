@@ -1,3 +1,4 @@
+import { unstable_ViewTransition as ViewTransition } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -25,13 +26,16 @@ export default async function ProductPage({
 			</Link>
 			<div className='grid md:grid-cols-2 gap-12'>
 				<div className='flex items-center justify-center'>
-					<Image
-						src={getImageUrl('products', product.image) || '/placeholder.svg'}
-						alt={product.name}
-						width={1000}
-						height={1000}
-						className='object-contain max-h-[500px] w-auto h-auto'
-					/>
+					<ViewTransition name={`product-${product.id}`}>
+						<Image
+							src={getImageUrl('products', product.image) || '/placeholder.svg'}
+							alt={product.name}
+							width={1000}
+							height={1000}
+							data-view-transition-name={`product-${product.id}`}
+							className='object-contain max-h-[500px] w-auto h-auto'
+						/>
+					</ViewTransition>
 				</div>
 				<div>
 					<h1 className='text-3xl font-bold mb-2'>{product.name}</h1>
@@ -46,9 +50,14 @@ export default async function ProductPage({
 						</ul>
 					</div>
 					<div className='mb-8'>
-						<p className='text-2xl font-mono bg-gray-100 p-3 inline-block rounded'>
+						<a
+							href={`${product.manufacturer_url}?ref=avstore`}
+							target='_blank'
+							rel='noopener noreferrer'
+							className='text-2xl font-mono bg-gray-100 p-3 inline-block rounded hover:underline'
+						>
 							{product.code}
-						</p>
+						</a>
 					</div>
 					<ButtonAddCart product={product} />
 				</div>

@@ -1,5 +1,6 @@
 'use client'
 
+import { unstable_ViewTransition as ViewTransition } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Eye, Minus, Plus } from 'lucide-react'
@@ -20,14 +21,17 @@ export function ProductList({ products }: { products: Product[] }) {
 				return (
 					<div key={product.id} className='group relative'>
 						<div className='aspect-square relative mb-2 overflow-hidden'>
-							<Image
-								src={
-									getImageUrl('products', product.image) || '/placeholder.svg'
-								}
-								alt={product.name || product.code}
-								fill
-								className='object-contain transition-transform group-hover:scale-105'
-							/>
+							<ViewTransition name={`product-${product.id}`}>
+								<Image
+									src={
+										getImageUrl('products', product.image) || '/placeholder.svg'
+									}
+									alt={product.name || product.code}
+									data-view-transition-name={`product-${product.id}`}
+									fill
+									className='object-contain transition-transform group-hover:scale-105'
+								/>
+							</ViewTransition>
 							<div className='absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-opacity flex items-center justify-center'>
 								<div className='opacity-0 group-hover:opacity-100 transition-opacity flex space-x-2'>
 									<Link
