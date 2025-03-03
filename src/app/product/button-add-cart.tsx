@@ -16,6 +16,10 @@ export function ButtonAddCart({ product }: { product: Product }) {
 			onClick={() => addToCart(product)}
 			disabled={isInCart}
 			className='w-full md:w-auto'
+			aria-label={
+				isInCart ? 'Producto añadido al carrito' : 'Agregar producto al carrito'
+			}
+			role='button'
 		>
 			<ShoppingCart className='mr-2 h-4 w-4' />
 			{isInCart ? 'Añadido al Carrito' : 'Agregar al Carrito'}

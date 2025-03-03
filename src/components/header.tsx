@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { Menu, ShoppingCart, X } from 'lucide-react'
 import { generateWhatsAppMessage } from '@/lib/cart-utils'
 import { getImageUrl } from '@/lib/get-image-url'
@@ -57,15 +58,22 @@ export function Header() {
 								>
 									Contacto
 								</a>
-								<a href='#' className='block text-sm hover:underline'>
-									Términos y Condiciones
-								</a>
+								<SheetTrigger asChild>
+									<Link
+										href='/terms-and-conditions'
+										className='block text-sm hover:underline'
+									>
+										Términos y Condiciones
+									</Link>
+								</SheetTrigger>
 							</nav>
 						</div>
 					</SheetContent>
 				</Sheet>
 
-				<span className='text-xl font-bold'>AVStore</span>
+				<Link href='/'>
+					<span className='text-xl font-bold'>AVStore</span>
+				</Link>
 				<Sheet>
 					<SheetTrigger>
 						<div className='relative'>
