@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
+import type { Viewport } from 'next'
 import { Header } from '@/components/header'
 
 const geistSans = Geist({
@@ -12,6 +13,10 @@ const geistMono = Geist_Mono({
 	variable: '--font-geist-mono',
 	subsets: ['latin']
 })
+
+export const viewport: Viewport = {
+	themeColor: 'black'
+}
 
 export const metadata: Metadata = {
 	title: 'AVStore - Hardware a tu alcance',
@@ -39,8 +44,7 @@ export const metadata: Metadata = {
 		title: 'AVStore - Hardware a tu alcance',
 		description:
 			'Tu aliado para encontrar el mejor hardware de Colombia. Descubre componentes de computadora para gaming y profesionales, con envíos a toda Colombia y hardware al mejor precio.'
-	},
-	themeColor: [{ media: '(prefers-color-scheme: light)', color: '#ffffff' }]
+	}
 }
 
 export default function RootLayout({
